@@ -8,6 +8,8 @@
 
 - - -
 
+![Preview](preview.gif)
+
 ## Motivation
 
 Styling components is a critical point when we decide to develop in React.
