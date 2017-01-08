@@ -15,7 +15,7 @@
     "test": "cross-env BABEL_ENV=commonjs nyc --require babel-register --require ./test/setup.js mocha --recursive",
     "test:watch": "npm test -- --watch",
     "test:cov": "nyc report --reporter=text-lcov | coveralls",
-    "check:src": "npm run lint",
+    "check:src": "npm run lint && npm run test",
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
     "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
     "build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack src/index.js dist/react-cssom.js",
@@ -67,14 +67,14 @@
     "jsdom": "9.5.0",
     "mocha": "3.0.2",
     "nyc": "8.3.0",
-    "react": "15.4.1",
-    "react-addons-perf": "15.3.2",
-    "react-addons-test-utils": "15.3.2",
+    "react": "15.4.2",
+    "react-addons-test-utils": "15.4.2",
+    "react-dom": "15.4.2",
     "rimraf": "2.5.2",
     "webpack": "1.13.1"
   },
   "peerDependencies": {
-    "react": "^15.4.1"
+    "react": "^15.4.2"
   },
   "npmName": "react-cssom",
   "npmFileMap": [
