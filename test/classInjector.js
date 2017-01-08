@@ -1,5 +1,6 @@
 import expect from 'expect';
 import React from 'react';
+//eslint-disable-next-line
 import ReactCSSOM from '../src/index';
 import ReactTestUtils from 'react-addons-test-utils';
 
