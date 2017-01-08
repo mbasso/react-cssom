@@ -40,6 +40,8 @@ If you aren't using npm in your project, you can include ReactCSSOM using UMD bu
 
 ## Usage
 
+### Basic
+
 Once you have installed react-cssom, supposing a CommonJS environment, you can import it in your index file, before `ReactDOM.render`.
 
 ```js
@@ -51,7 +53,7 @@ import App from './App';
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
-Now you can use react-cssom as you can see in the gif above, just like normal css.
+Now you can use react-cssom as you can see in the gif above, just like in normal css, you can select React Components.
 You can load styles in the way that you prefer but is important to keep in mind that selectors must be in this form:
 
 ```css
@@ -59,8 +61,81 @@ You can load styles in the way that you prefer but is important to keep in mind 
 ```
 
 For example, this is a valid one `.⚛App`.
-So, pay attetion that components' names and css selectors always match.
+So, pay attention that components' names and css selectors always match.
 This is particular important if you have css-modules that modifies the original names, or code obfuscation.
+The first ones for example need a syntax like this:
+
+```css
+:global .⚛ComponentName {
+	/* styles here */
+}
+```
+
+
+### Adapting based on props
+
+If you want to set styles based on props, you can do it in 2 ways:
+
+1. Set inline styles, as we can see in this example:
+```js
+class Button extends React.Component {
+	render() {
+		return (
+			<button
+				style={{
+					backgroundColor: this.props.primary ? 'blue' : 'black',
+				}}
+			>
+				Click me
+			</button>
+		)
+	}
+}
+```
+
+2. Set a specific class, maybe using css-modules, as we can see here:
+```js
+import styles from './Button.css';
+
+export default class Button extends React.Component {
+	render() {
+		return (
+			<button
+				className={this.props.primary ? styles.primary : styles.default}
+			>
+				Click me
+			</button>
+		)
+	}
+}
+```
+
+and here is the corresponding css, note the global selector:
+
+```css
+:global .⚛Button {
+	height: 50px;
+	width: 100px;
+}
+
+.primary {
+	background-color: blue;
+}
+
+.primary:global.⚛Button {
+	color: yellow;
+}
+
+.default {
+	background-color: grey;
+}
+
+.default:global.⚛Button {
+	color: black;
+}
+```
+
+### Additional API
 
 ReactCSSOM also exposes 2 simple API to mount and unmount styles, here they are:
 
