@@ -24,6 +24,7 @@ In some situations this means having strong connection with the source code, tha
 On other situations we are supposed to use only inline styles, that is not so good for a set of reasons.
 With ReactCSSOM we have tried to develop a system that allows us to separate `js` and `css` in a way that allows our designers to work independently,
 using normal CSS with the support of [React Developer Tools](#https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi).
+
 Using ReactCSSOM means:
 
 - Each Component has its own `style.css`
@@ -48,7 +49,7 @@ If you aren't using npm in your project, you can include ReactCSSOM using UMD bu
 
 ### Basic
 
-Once you have installed react-cssom, supposing a CommonJS environment, you can import it in your index file, before `ReactDOM.render`.
+Once you have installed react-cssom, supposing a CommonJS environment, you can import it in your index file, before `ReactDOM.render` and `App` import.
 
 ```js
 import React from 'react';
@@ -59,7 +60,7 @@ import App from './App';
 ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
-Now you can use react-cssom as you can see in the gif above, just like in normal css, you can select React Components.
+Now you can use react-cssom as you can see in the gif above, just like normal css, but with a special selector for React Components.
 You can load styles in the way that you prefer but is important to keep in mind that selectors must be in this form:
 
 ```css
@@ -82,7 +83,7 @@ The first ones for example need a syntax like this:
 
 If you want to set styles based on props, you can do it in 2 ways:
 
-1. Set inline styles, as we can see in this example:
+- Set inline styles, as we can see in this example:
 ```js
 class Button extends React.Component {
 	render() {
@@ -99,7 +100,7 @@ class Button extends React.Component {
 }
 ```
 
-2. Set a specific class, maybe using css-modules, as we can see here:
+- Set a specific class, maybe using css-modules, as we can see here:
 ```js
 import styles from './Button.css';
 
