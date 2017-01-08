@@ -1,5 +1,11 @@
 # react-cssom
 
+[![Build Status](https://travis-ci.org/mbasso/react-cssom.svg?branch=master)](https://travis-ci.org/mbasso/react-cssom)
+[![npm version](https://img.shields.io/npm/v/react-cssom.svg)](https://www.npmjs.com/package/react-cssom)
+[![npm downloads](https://img.shields.io/npm/dm/react-cssom.svg?maxAge=2592000)](https://www.npmjs.com/package/react-cssom)
+[![Coverage Status](https://coveralls.io/repos/github/mbasso/react-cssom/badge.svg?branch=master)](https://coveralls.io/github/mbasso/react-cssom?branch=master)
+[![Join the chat at https://gitter.im/mbasso/react-cssom](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mbasso/react-cssom?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 > Style React Components just like real DOM nodes
 
 - - -
