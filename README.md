@@ -6,7 +6,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/mbasso/react-cssom/badge.svg?branch=master)](https://coveralls.io/github/mbasso/react-cssom?branch=master)
 [![Join the chat at https://gitter.im/mbasso/react-cssom](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mbasso/react-cssom?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-> Style React Components just like real DOM nodes
+> Css selector for React Components
 
 - - -
 
@@ -20,10 +20,8 @@
 
 Styling components is a critical point when we decide to develop in React.
 There are a lot of ways in which we can do this but all of these have pro and cons.
-In some situations this means having strong connection with the source code, that is not so good if it means that we have to allows our designer to modify our `.js`.
-On other situations we are supposed to use only inline styles, that is not so good for a set of reasons.
-With ReactCSSOM we have tried to develop a system that allows us to separate `js` and `css` in a way that allows our designers to work independently,
-using normal CSS with the support of [React Developer Tools](#https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi).
+In some situations this means having a strong connection with the source code, that is not so good.
+With ReactCSSOM we have tried to develop a system that allows us to separate `js` and `css`.
 
 Using ReactCSSOM means:
 

@@ -1,7 +1,7 @@
 {
   "name": "react-cssom",
   "version": "0.0.1",
-  "description": "Style React Components just like real DOM nodes",
+  "description": "Css selector for React Components",
   "main": "lib/index.js",
   "jsnext:main": "es/index.js",
   "files": [
