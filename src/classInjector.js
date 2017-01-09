@@ -11,7 +11,7 @@ export default function initClassInjector() {
       const component = originalRender.apply(this);
       let result = component;
       if (component) {
-        const classToInject = `⚛${this.constructor.name}`;
+        const classToInject = `⚛${this.constructor.displayName || this.constructor.name}`;
         if (typeof component.type === 'string') {
           result = React.cloneElement(
             component,

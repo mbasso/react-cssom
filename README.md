@@ -68,12 +68,35 @@ You can load styles in the way that you prefer but is important to keep in mind 
 For example, this is a valid one `.⚛App`.
 So, pay attention that components' names and css selectors always match.
 This is particular important if you have css-modules that modifies the original names, or code obfuscation.
+
 The first ones for example need a syntax like this:
 
 ```css
 :global .⚛ComponentName {
 	/* styles here */
 }
+```
+
+And the second one, considering for example a minification process with webpack's UglifyJsPlugin (see [here](https://github.com/facebook/react/issues/4915) for more information),
+need a component with a displayName attribute like this:
+
+```js
+class ComponentName extends React.Component {
+
+	static propTypes = {
+		// propTypes...
+	}
+
+	// this
+	static displayName = 'ComponentName';
+
+	render() {
+		// render here...
+	}
+}
+
+// or this
+// ComponentName.displayName = 'ComponentName';
 ```
 
 
@@ -84,6 +107,9 @@ If you want to set styles based on props, you can do it in 2 ways:
 - Set inline styles, as we can see in this example:
 ```js
 class Button extends React.Component {
+
+	static displayName = 'Button';
+
 	render() {
 		return (
 			<button
@@ -103,6 +129,9 @@ class Button extends React.Component {
 import styles from './Button.css';
 
 export default class Button extends React.Component {
+
+	static displayName = 'Button';
+
 	render() {
 		return (
 			<button

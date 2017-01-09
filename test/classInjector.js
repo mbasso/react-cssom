@@ -87,4 +87,32 @@ describe('Css class injector', () => {
       className: '⚛Foo',
     });
   });
+
+  it('should inject displayName', () => {
+    //eslint-disable-next-line
+    class Foo extends React.Component {
+      static propTypes = {
+        style: React.PropTypes.string,
+        className: React.PropTypes.string,
+      }
+
+      static displayName = 'Bar';
+
+      render() {
+        return (
+          <div {...this.props}>
+            <p></p>
+          </div>
+        );
+      }
+    }
+
+    const renderer = ReactTestUtils.createRenderer();
+    renderer.render(<Foo style="bar" />);
+    const result = renderer.getRenderOutput();
+    expect(result.props).toMatch({
+      style: 'bar',
+      className: '⚛Bar ',
+    });
+  });
 });
