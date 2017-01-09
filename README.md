@@ -66,8 +66,8 @@ You can load styles in the way that you prefer but is important to keep in mind 
 ```
 
 For example, this is a valid one `.⚛App`.
-So, pay attention that components' names and css selectors always match.
-This is particular important if you have css-modules that modifies the original names, or code obfuscation.
+So, **pay attention that components' names and css selectors always match.
+This is particular important if you have css-modules that modifies the original names, or code obfuscation.**
 
 The first ones for example need a syntax like this:
 
