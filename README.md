@@ -25,8 +25,8 @@ With ReactCSSOM we have tried to develop a system that allows us to separate `js
 
 Using ReactCSSOM means:
 
-- Each Component has its own `style.css`
 - Scoped styles based on component's structure
+- Each Component has its own `style.css`
 - No extra inline styles, use them only when and where you really need, this means better performance
 - No limitations to CSS power
 - Easy to use with CSS Preprocessors (no more stuff needed)
