@@ -1,8 +1,11 @@
-import initClassInjector from './classInjector';
-
-initClassInjector();
+import React from 'react';
+import inject from './injector';
 
 const ReactCSSOM = {
+  initInjector: () => {
+    React.Component = inject(React.Component)();
+  },
+  inject,
   mount: (css) => {
     const head = document.head || document.getElementsByTagName('head')[0];
     const style = document.createElement('style');

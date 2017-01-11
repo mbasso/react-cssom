@@ -2,7 +2,7 @@ import expect from 'expect';
 import { jsdom } from 'jsdom';
 import ReactCSSOM from '../src/index';
 
-describe('Class', () => {
+describe('DOMUtils', () => {
   afterEach(() => {
     global.document = jsdom('<!doctype html><html><head></head><body></body></html>');
   });

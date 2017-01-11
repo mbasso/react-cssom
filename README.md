@@ -31,7 +31,7 @@ Using ReactCSSOM means:
 - No limitations to CSS power
 - Easy to use with CSS Preprocessors (no more stuff needed)
 - Highly expressive
-- Lightweight, only 50 lines of js
+- Lightweight, only 100 lines of js
 
 ## Installation
 
@@ -171,7 +171,7 @@ and here is the corresponding css, note the global selector:
 
 ### Additional API
 
-ReactCSSOM also exposes 2 simple API to mount and unmount styles, here they are:
+ReactCSSOM also exposes 2 simple API to mount and unmount styles in the DOM, here they are:
 
 ```js
 import ReactCSSOM from 'react-cssom';
