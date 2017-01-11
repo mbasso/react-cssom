@@ -1,13 +1,13 @@
 import expect from 'expect';
 import React from 'react';
-import ReactCSSOM from '../src/index';
+import inject from '../src/injector';
 import ReactTestUtils from 'react-addons-test-utils';
 
 describe('injector', () => {
   describe('functional stateless components', () => {
     it('should inject in functional stateless component', () => {
       /* eslint-disable */
-      const Foo = ReactCSSOM.inject((props) => (
+      const Foo = inject((props) => (
         <div>
           <span>{props.foo}</span>
         </div>
@@ -34,7 +34,7 @@ describe('injector', () => {
         }
       }
 
-      const Bar = ReactCSSOM.inject(Foo)();
+      const Bar = inject(Foo)();
       const renderer = ReactTestUtils.createRenderer();
       expect(() => renderer.render(<Bar />)).toNotThrow();
     });
@@ -51,7 +51,7 @@ describe('injector', () => {
         }
       }
 
-      const Bar = ReactCSSOM.inject(Foo)();
+      const Bar = inject(Foo)();
       const renderer = ReactTestUtils.createRenderer();
       renderer.render(<Bar style="bar" />);
       const result = renderer.getRenderOutput();
@@ -72,7 +72,7 @@ describe('injector', () => {
         }
       }
 
-      const Bar = ReactCSSOM.inject(Foo)();
+      const Bar = inject(Foo)();
       const renderer = ReactTestUtils.createRenderer();
       renderer.render(<Bar />);
       const result = renderer.getRenderOutput();
@@ -93,7 +93,7 @@ describe('injector', () => {
         }
       }
 
-      const Bar = ReactCSSOM.inject(Foo)('Baz');
+      const Bar = inject(Foo)('Baz');
       const renderer = ReactTestUtils.createRenderer();
       renderer.render(<Bar />);
       const result = renderer.getRenderOutput();
@@ -114,7 +114,7 @@ describe('injector', () => {
         }
       }
 
-      const Bar = ReactCSSOM.inject(Foo)();
+      const Bar = inject(Foo)();
       const renderer = ReactTestUtils.createRenderer();
       renderer.render(<Bar style="bar" />);
       const result = renderer.getRenderOutput();
@@ -140,7 +140,7 @@ describe('injector', () => {
         }
       }
 
-      const Baz = ReactCSSOM.inject(Foo)();
+      const Baz = inject(Foo)();
       const renderer = ReactTestUtils.createRenderer();
       renderer.render(<Baz />);
       const result = renderer.getRenderOutput();
@@ -158,7 +158,7 @@ describe('injector', () => {
         }
       }
 
-      const Bar = ReactCSSOM.inject(Foo)();
+      const Bar = inject(Foo)();
       const renderer = ReactTestUtils.createRenderer();
       renderer.render(<Bar className="bar" />);
       const result = renderer.getRenderOutput();
@@ -222,7 +222,7 @@ describe('injector', () => {
         }
       }
 
-      const Baz = ReactCSSOM.inject(Foo)();
+      const Baz = inject(Foo)();
       const renderer = ReactTestUtils.createRenderer();
       renderer.render(<Baz style="foo" className="bar" />);
       const result = renderer.getRenderOutput();
@@ -239,7 +239,7 @@ describe('injector', () => {
     });
 
     it('should inject in all components', () => {
-      ReactCSSOM.initInjector();
+      React.Component = inject(React.Component)();
       //eslint-disable-next-line
       class Foo extends React.Component {
         render() {

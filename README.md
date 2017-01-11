@@ -169,29 +169,6 @@ and here is the corresponding css, note the global selector:
 }
 ```
 
-### Additional API
-
-ReactCSSOM also exposes 2 simple API to mount and unmount styles in the DOM, here they are:
-
-```js
-import ReactCSSOM from 'react-cssom';
-
-// add styles to the DOM
-const style = ReactCSSOM.mount(`
-	.⚛App {
-		background-color: #000000;
-	}
-
-	.⚛App > .⚛Page {
-		background-color: #C0C0C0;
-	}
-`);
-
-
-// remove styles
-ReactCSSOM.unmount(style);
-```
-
 ## Change Log
 
 This project adheres to [Semantic Versioning](http://semver.org/).  
