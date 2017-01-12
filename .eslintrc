@@ -17,9 +17,13 @@
     "react/react-in-jsx-scope": 2
   },
   "plugins": [
+    "flowtype",
     "react"
   ],
-  "extends": "airbnb",
+  "extends": [
+    "plugin:flowtype/recommended",
+    "airbnb"
+  ],
   "globals": {
     "describe"   : false,
     "it"         : false,
