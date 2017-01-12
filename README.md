@@ -13,7 +13,7 @@
 ## Motivation
 
 Styling components is a critical point when we decide to develop in React.
-There are a lot of ways in which we can do this but all of these have pro and cons.
+There are a lot of ways in which we can do this but all of these have pros and cons.
 In some situations this means having a strong connection with the source code, that is not so good.
 With ReactCSSOM we have tried to develop a system that allows us to separate `js` and `css`.
 
@@ -25,7 +25,7 @@ Using ReactCSSOM means:
 - No limitations to CSS power
 - Easy to use with CSS Preprocessors (no more stuff needed)
 - Highly expressive
-- Lightweight, only 100 lines of js
+- Lightweight, only 88 lines of js
 
 ## Installation
 
@@ -127,9 +127,7 @@ export default class Button extends React.Component {
 						}
 					`}
 				</style>
-				<button
-					className={this.props.primary ? styles.primary : styles.default}
-				>
+				<button>
 					Click me
 				</button>
 			</div>
