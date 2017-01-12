@@ -99,32 +99,53 @@ class ComponentName extends React.Component {
 // ComponentName.displayName = 'ComponentName';
 ```
 
+Please, note also that if you are using a functional stateless component, you have to wrap it with our function to make it work.
+This function accepts the component as parameter of the first function and its name as parameter of its return:
+
+```js
+import ReactCSSOM from 'react-cssom';
+
+const Foo = ReactCSSOM.inject((props) => (
+	<div>
+		Hello {props.name}
+	</div>
+))('Foo');
+```
+
 
 ### Adapting based on props
 
-If you want to set styles based on props, you can do it in 2 ways:
+If you want to set styles based on props, you can do it in 3 ways:
 
-- Set inline styles, as we can see in this example:
+- Using a style tag directly into the component:
 ```js
-class Button extends React.Component {
+export default class Button extends React.Component {
 
 	static displayName = 'Button';
 
 	render() {
 		return (
-			<button
-				style={{
-					backgroundColor: this.props.primary ? 'blue' : 'black',
-				}}
-			>
-				Click me
-			</button>
+			<div>
+				<style>
+					{`
+						.⚛Button > button {
+							background-color: ${this.props.primary ? 'blue' : 'black'}
+						}
+					`}
+				</style>
+				<button
+					className={this.props.primary ? styles.primary : styles.default}
+				>
+					Click me
+				</button>
+			</div>
 		)
 	}
 }
 ```
 
-- Set a specific class, maybe using css-modules, as we can see here:
+
+- Setting a specific class, maybe using css-modules, as we can see here:
 ```js
 import styles from './Button.css';
 
@@ -166,6 +187,26 @@ and here is the corresponding css, note the global selector:
 
 .default:global.⚛Button {
 	color: black;
+}
+```
+
+- Setting inline styles, as we can see in this example:
+```js
+class Button extends React.Component {
+
+	static displayName = 'Button';
+
+	render() {
+		return (
+			<button
+				style={{
+					backgroundColor: this.props.primary ? 'blue' : 'black',
+				}}
+			>
+				Click me
+			</button>
+		)
+	}
 }
 ```
 
