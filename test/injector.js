@@ -4,6 +4,38 @@ import inject from '../src/injector';
 import ReactTestUtils from 'react-addons-test-utils';
 
 describe('injector', () => {
+  describe('elements', () => {
+    it('should inject in element', () => {
+      expect(
+        inject(<span foo="bar" ></span>)('Foo')
+      ).toEqual(
+        <span foo="bar" className="⚛Foo " ></span>
+      );
+
+      //eslint-disable-next-line
+      class Foo extends React.Component {
+        render() {
+          return <div />;
+        }
+      }
+
+      //eslint-disable-next-line
+      class Bar extends React.Component {
+        render() {
+          return <Foo />;
+        }
+      }
+
+      expect(
+        inject(<Bar foo="bar" />)('Foo')
+      ).toEqual(
+        <div className="⚛Foo" >
+          <Bar foo="bar" />
+        </div>
+      );
+    });
+  });
+
   describe('functional stateless components', () => {
     it('should inject in functional stateless component', () => {
       /* eslint-disable */
