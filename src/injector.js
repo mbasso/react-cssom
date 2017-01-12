@@ -25,26 +25,30 @@ function injectInElement(component, componentName) {
 }
 
 function injectInComponent(Component, componentName) {
-  const componentPrototype = Component.prototype;
-  const componentConstructor = Component;
+  let newComponent = Component;
+  if (!Component.hasReactCSSOM) {
+    const componentPrototype = Component.prototype;
+    const componentConstructor = Component;
 
-  //eslint-disable-next-line
-  const newComponent = function ReactComponent(...params) {
-    componentConstructor.apply(this, [...params]);
-    const originalRender = this.render;
-    this.render = () => (
-      injectInElement(
-        originalRender.apply(this),
-        componentName || this.constructor.displayName || this.constructor.name
-      )
-    );
-  };
+    //eslint-disable-next-line
+    newComponent = function ReactComponent(...params) {
+      componentConstructor.apply(this, [...params]);
+      const originalRender = this.render;
+      this.render = () => (
+        injectInElement(
+          originalRender.apply(this),
+          componentName || this.constructor.displayName || this.constructor.name
+        )
+      );
+    };
 
-  //eslint-disable-next-line
-  newComponent.prototype = componentPrototype;
-  Object.keys(Component).forEach((x) => {
-    newComponent[x] = Component[x];
-  });
+    newComponent.prototype = componentPrototype;
+    Object.keys(Component).forEach((x) => {
+      newComponent[x] = Component[x];
+    });
+
+    newComponent.hasReactCSSOM = true;
+  }
 
   return newComponent;
 }

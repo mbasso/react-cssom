@@ -258,5 +258,43 @@ describe('injector', () => {
         className: '⚛Foo ',
       });
     });
+
+    it('should inject only the first time', () => {
+      //eslint-disable-next-line
+      class Foo extends React.Component {
+        render() {
+          return (
+            <div />
+          );
+        }
+      }
+
+      let oldClass = Foo;
+      let Bar = inject(Foo)();
+      expect(oldClass).toNotEqual(Bar);
+      expect(Foo.hasReactCSSOM).toBeFalsy();
+      expect(Bar.hasReactCSSOM).toBeTruthy();
+      oldClass = Bar;
+      Bar = inject(Foo)();
+      expect(oldClass).toEqual(Bar);
+
+      oldClass = React.Component;
+      React.Component = inject(React.Component)();
+      expect(oldClass).toNotEqual(React.Component);
+      oldClass = React.Component;
+      React.Component = inject(React.Component)();
+      expect(oldClass).toEqual(React.Component);
+
+      //eslint-disable-next-line
+      class Baz extends React.Component {
+        render() {
+          return (
+            <div />
+          );
+        }
+      }
+
+      expect(Baz.hasReactCSSOM).toBeTruthy();
+    });
   });
 });
