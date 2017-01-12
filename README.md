@@ -8,12 +8,6 @@
 
 > Css selector for React Components
 
-- - -
-
-**Attention - This project is not completed yet.**
-
-- - -
-
 ![Preview](preview.gif)
 
 ## Motivation

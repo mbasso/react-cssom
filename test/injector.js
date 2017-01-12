@@ -174,6 +174,20 @@ describe('injector', () => {
           baz: React.PropTypes.string,
         }
 
+        constructor(props, context) {
+          super(props, context);
+          expect(props).toEqual({
+            className: 'bar',
+            style: 'foo',
+          });
+          expect(context).toEqual({
+            baz: 'lorem ipsum dolor',
+          });
+          expect(this.state).toEqual({
+            foo: 'test',
+          });
+        }
+
         state = {
           foo: 'test',
         }
