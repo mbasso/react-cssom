@@ -109,33 +109,7 @@ const Foo = ReactCSSOM.inject((props) => (
 
 ### Adapting based on props
 
-If you want to set styles based on props, you can do it in 3 ways:
-
-- Using a style tag directly into the component:
-```js
-export default class Button extends React.Component {
-
-	static displayName = 'Button';
-
-	render() {
-		return (
-			<div>
-				<style>
-					{`
-						.⚛Button > button {
-							background-color: ${this.props.primary ? 'blue' : 'black'}
-						}
-					`}
-				</style>
-				<button>
-					Click me
-				</button>
-			</div>
-		)
-	}
-}
-```
-
+If you want to set styles based on props, you can do it in 2 ways:
 
 - Setting a specific class, maybe using css-modules, as we can see here:
 ```js
